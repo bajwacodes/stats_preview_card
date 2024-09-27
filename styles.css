@@ -11,6 +11,7 @@
     --prim-dark-blue: hsl(233, 47%, 7%);
     --prim-sat-blue: hsl(244, 38%, 16%);
     --prim-violet: hsl(277, 64%, 61%);
+    
   
     --neu-white: hsl(0, 0%, 100%);
     --neu-trans-white: hsla(0, 0%, 100%, 0.75);
@@ -18,6 +19,11 @@
   
     --bg-violet: hsl(277deg, 100%, 50%, 0.42);
     --bg-light-violet: hsl(293deg, 42%, 35%, 0.24);
+
+    --test-prim-violet: hsl(280, 75%, 35%); /* Darker and sharper */
+    --test-bg-violet: hsl(277deg, 100%, 35%, 0.65); /* Darker, sharper, and less transparent */
+
+
 }
 
 
@@ -35,6 +41,10 @@ body{
     font-weight: 900;
 }
 
+.heading{
+    font-size: 1.8rem;
+}
+
 span{
     color: var(--prim-violet);
 }
@@ -50,15 +60,17 @@ body{
 
 main{
     width: 90%;
+    max-width: 400px;
     margin: 0 auto;
+    border-radius: 0rem 0rem .5rem .5rem;
     background: var(--prim-sat-blue);
-    
 
     text-align: center;
 }
 
 img{
     width: 100%;
+    border-radius: .5rem .5rem 0rem 0rem;
 }
 
 .desc-box{
@@ -71,4 +83,111 @@ img{
 
 .desc-box .desc{
     padding-bottom: 2.3em;
+}
+
+/* .figures{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.faint-txt{
+    color: var(--neu-more-trans-white);
+}
+
+.features{
+    font-size: .7rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-family: "Lexend Deca", sans-serif;
+    margin-bottom: 2.3em;
+}
+
+.digit{
+    font-size: 1.5rem;
+    padding-bottom: .3em;
+}
+
+
+
+/* Styling the image  */
+
+.img-box{
+    position: relative;
+    display: inline-block;
+}
+
+.img-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.img-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--test-prim-violet);
+    opacity: .6; /* Adjust for transparency */
+    z-index: 1;
+}
+
+@media screen and (min-width:1000px){
+    
+    main{
+        max-width: 1500px;
+        width: 90%;
+        display: flex;
+        text-align: start;
+        border-radius: 0.8rem;
+    }
+
+    .img-box{
+        order: 2;
+        width: 50%;
+        border-radius: 0.7rem 0rem 0rem 0.7rem;
+    }
+
+    img{
+        min-height: 100%;
+        object-fit: inherit;
+        border-radius: 0rem 0.7rem 0.7rem 0rem;
+    }
+
+
+    .desc-box{
+        order: 1;
+        width: 50%;
+
+        padding: 5em;
+        border-radius: 0.8rem;
+    }
+
+    .figures{
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 2rem;
+    }
+ 
+    .figure-container-2, .figure-container-3{
+        padding-left: 5em;
+    } 
+    
+    .heading{
+        font-size: 2.5rem;
+    }
+
+    .desc{
+        padding: 0em 6em 0em 0em;
+    }
+
+    .digit{
+        font-weight: 900;
+        font-size: 1.8rem;
+    }
+
 }
